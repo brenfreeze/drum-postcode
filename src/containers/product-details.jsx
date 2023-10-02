@@ -1,13 +1,15 @@
+import { formatCurrency } from "@/lib/format-currency";
 import Image from "next/image";
 
-const ProductDetails = ({ title, category, description, images }) => {
+const ProductDetails = ({ title, category, description, images, price }) => {
   return (
     <div className="flex flex-col">
       <span className="text-sm font-bold text-gray-400 uppercase">
         {category.replace('-', ' ')}
       </span>
       <h1 className="text-3xl font-semibold">{title}</h1>
-      <p className="my-6">{description}</p>
+      <p className="mb-6">{description}</p>
+      <div className="mb-6 text-xl">{formatCurrency(price)}</div>
       <div className="flex flex-col p-4 bg-gray-200">
         <h3 className="mb-2 text-sm font-bold uppercase">More Images</h3>
         <div className="flex flex-wrap gap-2">
